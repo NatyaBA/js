@@ -1,6 +1,5 @@
 function sum(a, b) {
-    var f = a + b;
-    return f;
+    return(a + b);
 }
 
 function sub(a, b) {
@@ -9,53 +8,118 @@ function sub(a, b) {
 }
 
 function mul(a, b) {
-    var f = a * b;
-    return f;
+    return(a * b);
 }
 
 function div(a, b) {
-    var f = a / b;
-    return f;
+    return (a / b);
 }
 
 function persent(c,d) {
-    var f = (c*d)/100;
-    return f;
+    return ((c*d)/100);
 }
 
 function integerDiv(c, d) {
-    return Math.floor (c / d);
+    return ((c - c % d) / d);
 }
 
 function abs(c) {
-    return Math.abs (c);
+    if (c < 0) {
+        c *= -1;
+    }
+    return (c);
 }
 
 function sqrt(c) {
-    return Math.sqrt (c);
+    return (c ** (1/2));
 }
 
-function factorial (c) {
-    return Math.factorial (c);
+function factorial(z) {
+    result = 1;
+    for (i = 1; i <= z; i++) {
+        result = result * i;
+    }
+return (result);
 }
+    
 
 function round(c) {
-    return Math.round(c);
+   if ((c%1) !== 0){
+       if ((c%1) >= 0.5){
+          f=((c - c % 1) / 1);  
+          c-=f+1;
+        }
+        if ((c%1) < 0.5){
+        f=((c - c % 1) / 1);  
+        c-=f;
+      }}
+return(c);
+}
+
+function sin(x, z) {
+    Sin = 1;
+    n = 0;
+    term = 1;
+    for (i = 1; i <= 2*z; i++) {
+        n += 2;
+        term = term *(-x*x)/ ( n*(n+1) );
+        Sin += term;
+    }
+    Sin *= x;
+    return(Sin);
+}
+
+function cos(x, z) {
+    s = 0;
+    n = 0;
+    term = 1
+    while(term > z) {
+      s += term;
+      n++;
+      term *= -x * x / (2 * n - 1) / (2 * n)
+    }
+    return (s);
   }
+   
+/*    TG         */
 
-function sin(c) {
-    return Math.sin(c);
+function tg(x, z) {
+    Sin = 1;
+    n = 0;
+    term = 1;
+    for (i = 1; i <= 2*z; i++) {
+        n += 2;
+        term = term *(-x*x)/ ( n*(n+1) );
+        Sin += term;
+    }
+    Sin *= x;
+s = 0;
+while(term > z) {
+  s += term;
+  n++;
+  term *= -x * x / (2 * n - 1) / (2 * n)
+}
+return (Sin/s)
 }
 
-function cos(c) {
-    return Math.cos(c);
-}
+/*   CTG         */
 
-function tg(c) {
-    return Math.tg(c);
+function ctg(x, z) {
+    Sin = 1;
+    n = 0;
+    term = 1;
+    for (i = 1; i <= 2*z; i++) {
+        n += 2;
+        term = term *(-x*x)/ ( n*(n+1) );
+        Sin += term;
+    }
+    Sin *= x;
+s = 0;
+while(term > z) {
+  s += term;
+  n++;
+  term *= -x * x / (2 * n - 1) / (2 * n)
 }
-
-function ctg(c) {
-    return Math.ctg(c);
+return (s/Sin)
 }
 
