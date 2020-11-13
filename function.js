@@ -24,7 +24,7 @@ function integerDiv(c, d) {
 }
 
 function abs(c) {
-c = (c*c)**2;
+c = (c*c)**(1/2);
     return c;
 }
 
