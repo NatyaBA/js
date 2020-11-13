@@ -24,9 +24,7 @@ function integerDiv(c, d) {
 }
 
 function abs(c) {
-    if (c < 0) {
-        c *= -1;
-    }
+c = (c*c)**2;
     return c;
 }
 
@@ -45,7 +43,7 @@ return result;
 function round(c) {
    if ((c%1) !== 0){
        if ((c%1) >= 0.5){
-          f=(c - c % 1) ;  
+          f=((c - c % 1) / 1);  
           c-=f+1;
         }
         if ((c%1) < 0.5){
