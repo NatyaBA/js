@@ -45,7 +45,7 @@ return result;
 function round(c) {
    if ((c%1) !== 0){
        if ((c%1) >= 0.5){
-          f=((c - c % 1) / 1);  
+          f=(c - c % 1) ;  
           c-=f+1;
         }
         if ((c%1) < 0.5){
