@@ -1,102 +1,136 @@
 /*----------Reverse string------*/
 
 function Reverse() {
-    let str = "Hello world!";
-    
-    return str.reverse();
+    const str = "Hello world!";
+ 
+    if ((str == "") || (str.length == 1))       
+        return str;
+    else
+        return str.reverse();
 }
 
 function Reverse() {
-    let str = "Hello world!", i;
+    const str = "Hello world!", i;
     
-    for (i = str.length-1; i >= 0; i--) 
-        strRev += str[i];
-    return str;
+    for (i = str.length-1; i >= 0; i--) { 
+        if ((str == "") || (str.length == 1))   
+            return str;
+        else {
+            strRev += str[i];     
+            return str;
+        }
+    }
 }
 
 /*-----------End With-----------*/
 
 function EndWith() {
-    let str = "Hello world!";
-
-    str = str.slice(0, -1);
-    return str;
+    const str = "Hello world!";
+    
+    if (str == "")
+        return str;
+    else    
+        return str.slice(0, -1);
 } 
 
 function EndWith() {
-    let str = "Hello world!", i;
-
+    const str = "Hello world!", i;
+     
     for(i = 0; i < str.length; i++)
-        if (i == str.length-1) {
-            str.length--;
-            break;
+        if ((str == "") || (str.length == 1)) 
+            return str;
+        else {   
+            if (i == str.length-1) {
+                str.length--;
+                break;
+            }
+            return str;
         }
-    return str;
-}
+    }        
 
 /*----------Start With----------*/
 
 function StartWith() {
-    let str = "Hello world!";
-
-    str = str.slice(7, 0);
-    return str;
+    const str = "Hello world!";
+     
+    if (str == "")
+        return str;
+    else    
+        return str.slice(7, 0);
 }
 
 function StartWith() {
-    let str = "Hello world!",i;
+    const str = "Hello world!",i;
 
     for(i = 0; i < str.length; i++)
-        if ((i >= 5) && (i <= str.length-1)) 
-            str.length--;
-    return str;
+        if (str == "")
+            return str;
+        else    
+            if ((i >= 5) && (i <= str.length-1)) { 
+                str.length--;
+                return str;
+            }
 }
 
 /*----------Is Camel Case-------*/
 
 function CamelCase() {
-    let str = "Hello world!";
-
-    return str.toCamelCase(str);
+    const str = "Hello world!";
+    
+    if (str == "")
+        return str;
+    else    
+        return str.toCamelCase(str);
 }
 
 function CamelCase() {
-    let str = "Hello world!",i;
+    const str = "Hello world!",i;
 
     for(i = 0; i < str.length; i++)
-        if (str[i]==' ') {
-            str.length--;
-            str[i+1] = to.UpperCase();
-        }     
-    return str;         
+        if (str == "")
+            return str;
+        else {
+            if (str[i]==' ') {
+                str.length--;
+                str[i+1] = to.UpperCase()
+            }         
+            return str;
+        }             
 }
 
 /*----------Is Snake Case--------*/
 
 function SnakeCase() {
-    let str = "Hello world!";
-
-    return str.toSnakeCase(str);
+    const str = "Hello world!";
+    
+    if (str == "")
+        return str;
+    else
+        return str.toSnakeCase(str);
 }
 
 function SnakeCase() {
-    let str = "Hello world!", i;
+    const str = "Hello world!", i;
 
     for(i = 0; i < str.length; i++)
-        if (str[i]==' ')
-            str[i]='_';
-    str = text. toLowerCase();        
-    return str;        
-}
+        if (str == "")
+            return str;
+        else {    
+            if (str[i]==' ')
+                str[i]='_';
+            str = text. toLowerCase();        
+            return str;        
+        }
+    }        
 
 /*----------Is NaN---------------*/
 
 function Nan() {
-    let num;
+    const num;
     return isNaN(num)
 }
  
 function Nan() {
-    let num;
+    const num;
     return num!==Nan;     
 }
