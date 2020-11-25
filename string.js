@@ -130,7 +130,10 @@ function Nan() {
     return isNaN(num)
 }
  
-function Nan() {
-    const num;
-    return num!==Nan;     
+function Nan(x) {   
+    
+    if (isNaN(x)) {
+        return NaN;
+    }
+    return x;
 }
