@@ -2,8 +2,9 @@
 
 function Reverse() {
     const str = "Hello world!";
- 
-    if ((str == "") || (str.length == 1))       
+    if (str == "") 
+        throw Error('Empty array');
+    if (str.length == 1)       
         return str;
     else
         return str.reverse();
@@ -12,8 +13,11 @@ function Reverse() {
 function Reverse() {
     const str = "Hello world!", i;
     
+    if (str == "") 
+        throw Error('Empty array');
+
     for (i = str.length-1; i >= 0; i--) { 
-        if ((str == "") || (str.length == 1))   
+        if (str.length == 1)   
             return str;
         else {
             strRev += str[i];     
@@ -28,17 +32,19 @@ function EndWith() {
     const str = "Hello world!";
     
     if (str == "")
-        return str;
+        throw Error('Empty array');  
     else    
         return str.slice(0, -1);
 } 
 
 function EndWith() {
     const str = "Hello world!", i;
-     
+
     for(i = 0; i < str.length; i++)
-        if ((str == "") || (str.length == 1)) 
+        if (str.length == 1)
             return str;
+        if (str == "")  
+            throw Error('Empty array');
         else {   
             if (i == str.length-1) {
                 str.length--;
@@ -54,7 +60,7 @@ function StartWith() {
     const str = "Hello world!";
      
     if (str == "")
-        return str;
+        throw Error('Empty array');
     else    
         return str.slice(7, 0);
 }
@@ -64,7 +70,7 @@ function StartWith() {
 
     for(i = 0; i < str.length; i++)
         if (str == "")
-            return str;
+            throw Error('Empty array');
         else    
             if ((i >= 5) && (i <= str.length-1)) { 
                 str.length--;
@@ -78,7 +84,7 @@ function CamelCase() {
     const str = "Hello world!";
     
     if (str == "")
-        return str;
+        throw Error('Empty array');
     else    
         return str.toCamelCase(str);
 }
@@ -88,7 +94,7 @@ function CamelCase() {
 
     for(i = 0; i < str.length; i++)
         if (str == "")
-            return str;
+            throw Error('Empty array');
         else {
             if (str[i]==' ') {
                 str.length--;
@@ -104,7 +110,7 @@ function SnakeCase() {
     const str = "Hello world!";
     
     if (str == "")
-        return str;
+        throw Error('Empty array');
     else
         return str.toSnakeCase(str);
 }
@@ -114,7 +120,7 @@ function SnakeCase() {
 
     for(i = 0; i < str.length; i++)
         if (str == "")
-            return str;
+            throw Error('Empty array');
         else {    
             if (str[i]==' ')
                 str[i]='_';
@@ -126,14 +132,14 @@ function SnakeCase() {
 /*----------Is NaN---------------*/
 
 function Nan() {
-    const num;
+    let num;
     return isNaN(num)
 }
  
 function Nan(x) {   
     
-    if (isNaN(x)) {
-        return NaN;
-    }
-    return x;
+    if (NaN === x) 
+        return true;
+    else
+        return false;
 }
