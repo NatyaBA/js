@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+</body>
+</html> 
+
+<script>
+/*----------Reverse string------*/
+
+function Reverse(str) {
+    if ((typeof str == 'undefined') || (str == null) || (str == false) || (str.length == 0) || (str == ""))
+        throw Error('Empty array');
+    if (str.length == 1)       
+        return str;
+    else
+        return str.split("").reverse().join("");
+}
+alert(Reverse("Hello world!"))
+
+
+function REverse(str,strRew) {    
+    if ((typeof str == 'undefined') || (str == null) || (str == false) || (str.length == 0) || (str == "")) 
+        throw Error('Empty array');
+    else {   
+        for (let i = str.length-1; i >= 0; i--) {        
+            strRew += str[i];    
+        }
+        str = "";
+        return strRew; 
+    }
+}
+alert(REverse("Hello world!"));
+
+/*-----------End With-----------*/
+
+function EndWith(str) {    
+    if ((typeof str == 'undefined') || (str == null) || (str == false) || (str.length == 0) || (str == ""))
+        throw Error('Empty array');  
+    else    
+        return str.slice(0, -3);
+} 
+alert(EndWith("Hello world!")); //Удаляется последних три элемента
+
+function EndWitH(str, strRew) {
+    if ((typeof str == 'undefined') || (str == null) || (str == false) || (str.length == 0) || (str == ""))
+        throw Error('Empty array');        
+    else
+    for (let i=0;i<str.length-10;i++)
+        strRew += str[i]; 
+    return strRew;
+     
+}
+alert(EndWitH("Hello world!"));      
+
+/*----------Start With----------*/
+
+function StartWith(str) {
+     
+    if ((typeof str == 'undefined') || (str == null) || (str == false) || (str.length == 0) || (str == ""))
+        throw Error('Empty array');
+    else    
+        return str.slice(0, 7);
+}
+alert(StartWith("Hello world!"));
+
+function StaRtWith(str,strRew) {
+    if ((typeof str == 'undefined') || (str == null) || (str == false) || (str.length == 0) || (str == ""))
+            throw Error('Empty array');
+    else {  
+        for (let i=0;i<str.length-7;i++)    
+            strRew += str[i]; 
+        return strRew;
+    }   
+}
+alert(StaRtWith("Hello world!"));
+
+/*----------Is Camel Case-------*/
+
+function CamElCase(str) {
+    if ((typeof str == 'undefined') || (str == null) || (str == false) || (str.length == 0) || (str == ""))
+        throw Error('Empty array');
+    else {
+        return str.split(' ').map 
+  
+        ( function(word, i) {  
+            if(i == 0){
+            return word.toLowerCase();
+        }
+    
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        } ).join('');
+    }    
+}
+alert(CamElCase("Hello world!"));
+
+/*----------Is Snake Case--------*/
+
+function SnakeCase(str) {
+    
+    if ((typeof str == 'undefined') || (str == null) || (str == false) || (str.length == 0) || (str == ""))
+        throw Error('Empty array');
+     else {   
+        return str.split(' ').map 
+  
+  ( function(word, i) {  
+      if(i == 0){
+      return word.toLowerCase();
+  }
+
+      return word.toLowerCase();
+  } ).join('-');
+}}
+alert(SnakeCase("Hello World!"));
+
+
+/*----------Is NaN---------------*/
+
+function Nan(str) {
+        return isNaN(str);
+}
+alert(Nan("Hello world!"));
+
+function NAn(str) {   
+    
+    if (NaN === str) 
+        return false;
+    else
+        return true;
+}
+alert(NAn("Hello world!"));
+
+</script>
+</head>
+<body>
