@@ -42,20 +42,17 @@ function EndWith(str) {
     if ((str == null) || (str == false) || (str.length == 0) || (str == ""))
         throw Error('Empty string');  
     else    
-        return str.slice(0, -3);
+        return str.endsWith('world!');
 } 
 console.log(EndWith("Hello world!")); //Удаляется последних три элемента
 
-function EndWitH(str)
- {
-     let strRew = "";
+function EndWitH(str) {
     if ((str == null) || (str == false) || (str.length == 0) || (str == ""))
         throw Error('Empty string');        
-    else
-    for (let i=0;i<str.length-10;i++)
-        strRew += str[i]; 
-    return strRew;
-     
+    else {
+        let str2 = 'w!'
+        return str.indexOf(str2, str.length - str2.length) !== -1;
+    }    
 }
 console.log(EndWitH("Hello world!"));      
 
@@ -66,17 +63,15 @@ function StartWith(str) {
     if ((str == null) || (str == false) || (str.length == 0) || (str == ""))
         throw Error('Empty string');
     else    
-        return str.slice(0, 7);
+        return str.startsWith('Hello');
 }
 console.log(StartWith("Hello world!"));
 function StaRtWith(str) {
-    let strRew = '';
     if ((str == null) || (str == false) || (str.length == 0) || (str == ""))
             throw Error('Empty string');
     else {  
-        for (let i=0;i<str.length-7;i++)    
-            strRew += str[i]; 
-        return strRew;
+        let str2 = 'Hel';
+        return str.lastIndexOf(str2, 0) === 0;
     }   
 }
 console.log(StaRtWith("Hello world!"));
