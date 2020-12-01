@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+//___________________SUM___________________
+function sum(a, b) {
+    return a + b;
+}
+console.log(sum(5, 7));
+
+//______________________SUB________________
+function sub(a, b) {
+    return a - b;
+}
+console.log(sub(5, 7));
+
+//___________________MUL____________________
+function mul(a, b) {
+    return a * b;
+}
+console.log(mul(5, 7));
+
+//____________________DIV___________________
+function div(a, b) {
+    return  a / b;
+}
+console.log(div(5, 7));
+
+//___________________PERSENT_______________
+function persent(c, d) {
+    return (c * d) / 100;
+}
+console.log(persent(10, 5));
+
+//_______________INTEGER_DIV_______________
+function integerDiv(c, d) {
+    return (c - c % d) / d;
+}
+console.log(integerDiv(25, 7));
+
+//__________________ABS____________________
+function abs(c) {
+c = (c * c) ** (1 / 2);
+    return c;
+}
+console.log(abs(-7));
+
+//___________________SQRT__________________
+function sqrt(c) {
+    return c ** (1 / 2);
+}
+console.log(sqrt(256));
+
+//________________FACTORIAL_________________
+function factorial(n){
+        var sum = n;
+        for(var i = 1; i < n; i++){
+            sum *= i;
+        }
+        return sum;
+}
+console.log(factorial(5));
+
+//_______________ROUND_______________________ 
+function round(c) {
+   if ((c % 1) != 0) {
+       if ((c % 1) >= 0.5) {
+          f = c - (c % 1);  
+          c=f+1;
+        }
+        if ((c % 1) < 0.5) {
+            f = c - (c % 1);  
+            c = f;
+        }
+        return c;    
+    }
+    else
+        return 0;
+}
+console.log(round(23.2));
+
+//________________________SIN________________
+function sin(x, iterNum) {
+    var Sin = 1,
+        n = 0,
+        a = 1;
+    for (var i = 1; i <= 2 * iterNum; i++) {
+        n = n + 2;
+        a = a * (-x * x) / (n * (n + 1) );
+        Sin = Sin + a
+    }
+    Sin = x * Sin;
+    return Sin;
+}
+
+console.log(sin(5, 10));
+
+//_______________________COS_________________
+function cos(x) {
+    let Cos = 1, n = 0, a = 1;
+ 
+    for (let i=1; i <= 10; i++) {
+        a = - (a * x * x) / ((2 * n + 2) * (2 * n + 1));
+        Cos = Cos + a;
+        n++;
+    }
+    return Cos;
+}
+
+console.log(cos(5));   
+
+//_________________________CG________________
+function tg(x, iterNum, y) {
+    Tg = sin(x, iterNum) / cos(y);
+return Tg;
+}
+console.log(tg(5, 7, 5));
+
+//________________CTG________________________
+
+function ctg(y, x, iterNum) {
+    Ctg = cos(y) / sin(x, iterNum);
+return Ctg;
+}
+console.log(ctg(5, 5, 7));
+
+</script>
+</body>
+</html>
