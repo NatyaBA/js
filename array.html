@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+/*_______________INITIAL_____________*/
+
+
+function Initial(array) {   
+    if ((array == null) || (array == false) || (array.length == 0) || (array == ""))
+        throw Error('Empty array')
+    else { 
+        array.pop();
+        return array;
+    }
+}
+console.log(Initial([1, 2, 3, 4, 5]));
+
+function initial(array) {
+    if ((array == null) || (array == false) || (array.length == 0) || (array == ""))
+        throw Error('Empty string');        
+    else {
+        array.length = 3;
+        return array;
+    }
+}
+console.log(initial([1, 2, 3, 4, 5]));
+
+/*_______________COMPACT_____________*/
+
+function compact(array) {
+    if ((array == null) || (array == false) || (array.length == 0) || (array == ""))
+        throw Error('Empty array')
+    else {
+       
+        return array.filter(Boolean);;
+    }     
+}
+console.log(compact([1, 2, "", false, 3, 0, NaN, 4, 7, null, undefined]));
+
+function Compact(array) {
+    if ((array == null) || (array == false) || (array.length == 0) || (array == ""))
+        throw Error('Empty array')
+    else {
+        for (i = 0; i < length; i++) 
+            if (array[i] === null || false || NaN || undefined) {
+                delete array[i];
+            }  
+
+        return array;
+    }
+}
+console.log(Compact([1, 2, 2, 3, "", 4, null, 5]));
+
+/*_______________UNION_______________*/
+
+function union(array1, array2) {
+   
+    if ((array1 == null) || (array1 == false) || (array1.length == 0) || (array1 == "")) {
+        if ((array2 == null) || (array2 == false) || (array2.length == 0) || (array2 == ""))
+            throw Error('Empty array')
+    }    
+    else {
+        for (let j =0; j < array1.length; j++)
+            for (let i =0; i < array2.length; i++)
+               if (array2[i]== array1[j])
+                   delete array2[i];
+               
+        return array1.concat(array2);
+    }
+}
+console.log(union([1, 2, 3, 4], [4, 5, 6, 7]));
+
+function Union(array1, array2) {
+  var array3 = {};
+  if ((array1 == null) || (array1 == false) || (array1.length == 0) || (array1 == "")){
+        if ((array2 == null) || (array2 == false) || (array2.length == 0) || (array2 == ""))
+            throw Error('Empty array')}
+    else {
+  
+  for (let i = 0; i < array1.length; i++) {
+    array3[array1[i]] = true;
+  }
+  for (i = 0; i < array2.length; i++) {
+    array3[array2[i]] = true;
+  }
+  return Object.keys(array3);
+}}
+
+console.log(Union([1, 2, 3, 4], [3, 4, 5, 6]));
+
+/*_______________RANGE_______________*/ 
+
+function range(start, end) {
+    let array = [];
+    if (start >= end) 
+        throw Error('Wrong parameters')
+else {
+    while (start < end) {    
+    
+        array = array + start;
+        start++;     }
+        return Object.keys(array);
+}     }  
+console.log(range(3, 7));
+
+
+function RAnge(start, end){
+    var array = [], i;
+    i = end - start + 1;
+    while ( i-- ) {
+        array[i] = end--
+    }
+    return array;
+}
+console.log(RAnge(17,25));
+
+</script>
+</body>
+</html>
