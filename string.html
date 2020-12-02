@@ -13,7 +13,7 @@
 /*----------Reverse string------*/
 
 function Reverse(str) {
-    if ((str == null) || (str == false) || (str.length == 0) || (str == ""))
+    if ((str === null) || (typeof str === 'undefined') || (str == "") || (typeof str !=="string"))
         throw Error('Empty string');
     if (str.length == 1)       
         return str;
@@ -25,7 +25,7 @@ console.log(Reverse("Hello world!"))
 
 function REverse(str) {    
     let strRew = "";
-    if ((str == null) || (str == false) || (str.length == 0) || (str == "")) 
+    if ((str === null) || (typeof str === 'undefined') || (str == "") || (typeof str !=="string"))
         throw Error('Empty string');
     else {   
         for (let i = str.length-1; i >= 0; i--) {        
@@ -39,7 +39,7 @@ console.log(REverse("Hello world!"));
 /*-----------End With-----------*/
 
 function EndWith(str) {    
-    if ((str == null) || (str == false) || (str.length == 0) || (str == ""))
+    if ((str === null) || (typeof str === 'undefined') || (str == "") || (typeof str !=="string"))
         throw Error('Empty string');  
     else    
         return str.endsWith('world!');
@@ -47,10 +47,10 @@ function EndWith(str) {
 console.log(EndWith("Hello world!")); //Удаляется последних три элемента
 
 function EndWitH(str) {
-    if ((str == null) || (str == false) || (str.length == 0) || (str == ""))
+    let str2 = "world!";
+    if ((str == null) || (typeof str === 'undefined') || (str == "") || (typeof str !=="string"))
         throw Error('Empty string');        
     else {
-        let str2 = 'w!'
         return str.indexOf(str2, str.length - str2.length) !== -1;
     }    
 }
@@ -60,14 +60,15 @@ console.log(EndWitH("Hello world!"));
 
 function StartWith(str) {
      
-    if ((str == null) || (str == false) || (str.length == 0) || (str == ""))
+    if ((str === null) || (typeof str === 'undefined') || (str == "") || (typeof str !=="string"))
         throw Error('Empty string');
     else    
         return str.startsWith('Hello');
 }
 console.log(StartWith("Hello world!"));
+
 function StaRtWith(str) {
-    if ((str == null) || (str == false) || (str.length == 0) || (str == ""))
+    if ((str === null) || (typeof str === 'undefined') || (str == "") || (typeof str !=="string"))
             throw Error('Empty string');
     else {  
         let str2 = 'Hel';
@@ -79,41 +80,36 @@ console.log(StaRtWith("Hello world!"));
 /*----------Is Camel Case-------*/
 
 function CamElCase(str) {
-    if ((str == null) || (str == false) || (str.length == 0) || (str == ""))
+    let x;
+    if ((str === null) || (typeof str === 'undefined') || (str == "") || (typeof str !=="string"))
         throw Error('Empty string');
-    else {
-        return str.split(' ').map 
-  
-        ( function(word, i) {  
-            if(i == 0){
-            return word.toLowerCase();
+    x = str[0].toLowerCase();
+    for (i = 1; i < str.length; i++) {
+        if (str[i - 1] === " " || i === 0) {
+            x += str[i].toUpperCase();
         }
-    
-            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-        } ).join('');
-    }    
+        else {
+            x += str[i]; 
+        }
+        x = x.replace(" ", '');
+    }
+    return x;
 }
+    
+
 console.log(CamElCase("Hello world!"));
 
 /*----------Is Snake Case--------*/
 
 function SnakeCase(str) {
-    
-    if ((str == null) || (str == false) || (str.length == 0) || (str == ""))
+ 
+    if ((str === null) || (typeof str === 'undefined') || (str == "") || (typeof str !=="string"))
         throw Error('Empty string');
-     else {   
-        return str.split(' ').map 
-  
-  ( function(word, i) {  
-        if(i == 0){
-        return word.toLowerCase();
-  }
-
-        return word.toLowerCase();
-  } ).join('-');
+     else {
+         str = str.replace(" ", '-');
+         return str.toLowerCase();
 }}
 console.log(SnakeCase("Hello World!"));
-
 
 /*----------Is NaN---------------*/
 
@@ -124,7 +120,7 @@ console.log(Nan("Hello world!"));
 
 function NAn(str) {   
     
-    if (NaN === str) 
+    if (typeof str === "number") 
         return false;
     else
         return true;
