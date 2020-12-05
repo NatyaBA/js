@@ -13,7 +13,7 @@
 /*----------Reverse string------*/
 
 function Reverse(str) {
-    if ((str === null) || (typeof str === 'undefined') || (str == "") || (typeof str !=="string"))
+    if ((str === null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
         throw Error('Empty string');
     if (str.length == 1)       
         return str;
@@ -25,7 +25,7 @@ console.log(Reverse("Hello world!"))
 
 function REverse(str) {    
     let strRew = "";
-    if ((str === null) || (typeof str === 'undefined') || (str == "") || (typeof str !=="string"))
+    if ((str === null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
         throw Error('Empty string');
     else {   
         for (let i = str.length-1; i >= 0; i--) {        
@@ -39,7 +39,7 @@ console.log(REverse("Hello world!"));
 /*-----------End With-----------*/
 
 function EndWith(str) {    
-    if ((str === null) || (typeof str === 'undefined') || (str == "") || (typeof str !=="string"))
+    if ((str === null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
         throw Error('Empty string');  
     else    
         return str.endsWith('world!');
@@ -48,7 +48,7 @@ console.log(EndWith("Hello world!")); //Удаляется последних т
 
 function EndWitH(str) {
     let str2 = "world!";
-    if ((str == null) || (typeof str === 'undefined') || (str == "") || (typeof str !=="string"))
+    if ((str == null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
         throw Error('Empty string');        
     else {
         return str.indexOf(str2, str.length - str2.length) !== -1;
@@ -60,7 +60,7 @@ console.log(EndWitH("Hello world!"));
 
 function StartWith(str) {
      
-    if ((str === null) || (typeof str === 'undefined') || (str == "") || (typeof str !=="string"))
+    if ((str === null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
         throw Error('Empty string');
     else    
         return str.startsWith('Hello');
@@ -68,7 +68,7 @@ function StartWith(str) {
 console.log(StartWith("Hello world!"));
 
 function StaRtWith(str) {
-    if ((str === null) || (typeof str === 'undefined') || (str == "") || (typeof str !=="string"))
+    if ((str === null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
             throw Error('Empty string');
     else {  
         let str2 = 'Hel';
@@ -81,7 +81,7 @@ console.log(StaRtWith("Hello world!"));
 
 function CamElCase(str) {
     let x;
-    if ((str === null) || (typeof str === 'undefined') || (str == "") || (typeof str !=="string"))
+    if ((str === null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
         throw Error('Empty string');
     x = str[0].toLowerCase();
     for (i = 1; i < str.length; i++) {
@@ -103,7 +103,7 @@ console.log(CamElCase("Hello world!"));
 
 function SnakeCase(str) {
  
-    if ((str === null) || (typeof str === 'undefined') || (str == "") || (typeof str !=="string"))
+    if ((str === null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
         throw Error('Empty string');
      else {
          str = str.replace(" ", '-');
