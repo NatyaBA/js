@@ -10,70 +10,78 @@
 </html> 
 
 <script>
+
+function errors(str){
+    if ((str === null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
+        throw Error('Empty string');
+}
 /*----------Reverse string------*/
 
 function Reverse(str) {
-    if ((str === null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
-        throw Error('Empty string');
-    if (str.length == 1)       
-        return str;
-    else
-        return str.split("").reverse().join("");
+    if (!errors(str)) {
+        if (str.length == 1)       
+            return str;
+        else
+            return str.split("").reverse().join("");
+    }
+    else 
+        errors;        
 }
 console.log(Reverse("Hello world!"))
 
 
 function REverse(str) {    
     let strRew = "";
-    if ((str === null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
-        throw Error('Empty string');
-    else {   
+    if (!errors(str)) {   
         for (let i = str.length-1; i >= 0; i--) {        
             strRew += str[i];    
         }
         return strRew; 
     }
+    else 
+        errors;
 }
 console.log(REverse("Hello world!"));
 
 /*-----------End With-----------*/
 
 function EndWith(str) {    
-    if ((str === null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
-        throw Error('Empty string');  
-    else    
+    if (!errors(str)) {  
         return str.endsWith('world!');
+    }
+    else
+        errors;    
 } 
 console.log(EndWith("Hello world!")); //Удаляется последних три элемента
 
 function EndWitH(str) {
     let str2 = "world!";
-    if ((str == null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
-        throw Error('Empty string');        
-    else {
+    if (!errors(str)) {
         return str.indexOf(str2, str.length - str2.length) !== -1;
-    }    
+    } 
+    else
+        errors;   
 }
 console.log(EndWitH("Hello world!"));      
 
 /*----------Start With----------*/
 
 function StartWith(str) {
-     
-    if ((str === null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
-        throw Error('Empty string');
-    else    
+    if (!errors(str)) {  
         return str.startsWith('Hello');
-}
+    }
+    else 
+        errors;
+}   
 console.log(StartWith("Hello world!"));
 
 function StaRtWith(str) {
-    if ((str === null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
-            throw Error('Empty string');
-    else {  
+    if (!errors(str)) {
         let str2 = 'Hel';
         return str.lastIndexOf(str2, 0) === 0;
     }   
+    else
+        errors;
 }
 console.log(StaRtWith("Hello world!"));
 
@@ -81,19 +89,21 @@ console.log(StaRtWith("Hello world!"));
 
 function CamElCase(str) {
     let x;
-    if ((str === null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
-        throw Error('Empty string');
-    x = str[0].toLowerCase();
-    for (i = 1; i < str.length; i++) {
-        if (str[i - 1] === " " || i === 0) {
-            x += str[i].toUpperCase();
+    if (!errors(str)) {
+        x = str[0].toLowerCase();
+        for (i = 1; i < str.length; i++) {
+            if (str[i - 1] === " " || i === 0) {
+                x += str[i].toUpperCase();
+            }
+            else {
+                x += str[i]; 
+            }
+            x = x.replace(" ", '');
         }
-        else {
-            x += str[i]; 
-        }
-        x = x.replace(" ", '');
+        return x;
     }
-    return x;
+    else
+        errors;
 }
     
 
@@ -102,13 +112,13 @@ console.log(CamElCase("Hello world!"));
 /*----------Is Snake Case--------*/
 
 function SnakeCase(str) {
- 
-    if ((str === null) || (typeof str === 'undefined') || (str.length == 0) || (typeof str !=="string"))
-        throw Error('Empty string');
-     else {
+    if (!errors(str)) {
          str = str.replace(" ", '-');
          return str.toLowerCase();
-}}
+    }
+    else
+        errors;
+}
 console.log(SnakeCase("Hello World!"));
 
 /*----------Is NaN---------------*/
