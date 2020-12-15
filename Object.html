@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+let user = {
+  name: "Nastya",
+  age: 30,
+  weight: 170,
+};
+
+function errors(user) {
+    if ((user === null) || (typeof user == undefined) || (user.length == 0) || (typeof user !== "object"))
+        throw Error('Empty object')
+}
+
+//____________IsObject________________
+
+function isObject(user) {
+        if (!errors(user))
+            return true;
+        else 
+            return false;
+}
+console.log(isObject(user));
+
+//____________IsFunction______________
+
+function isFunction(IsFunction) {
+    if (typeof IsFunction === "function")
+        return true;
+    else 
+        return false;    
+}
+console.log(isFunction(isObject));
+
+//_____________Keys___________________
+
+function Keys(user, ) {
+    if (!errors(user)) {
+        return user.name;
+    }
+    else
+        errors;
+}
+
+console.log(Keys(user));
+
+//_____________AllKeys________________
+
+function allKeys(user) {
+    if (!errors(user)) {
+        return Object.keys(user);
+    }
+    else
+        errors;
+}
+console.log(allKeys(user));
+
+//______________Values________________
+
+function values(user) {
+    if (!errors(user)) {
+        return Object.values(user);
+    }
+    else
+        errors;
+}
+console.log(values(user));
+
+//______________Pairs_________________
+
+function pairs(user) {
+    if (!errors(user)) {
+        return Object.entries(user);
+    }
+}
+console.log(pairs(user));
+
+//______________Function______________
+function FUnction(user) {
+    if (!errors(user))
+        return arguments;
+    else
+        errors;
+}
+console.log(FUnction(user));
+
+
+</script> 
+</body>
+</html>
