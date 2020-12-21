@@ -22,27 +22,21 @@ function errors(user) {
 //____________IsObject________________
 
 function isObject(user) {
-        if (!errors(user))
-            return true;
-        else 
-            return false;
+        return !errors(user);
 }
 console.log(isObject(user));
 
 //____________IsFunction______________
 
 function isFunction(IsFunction) {
-    if (typeof IsFunction === "function")
-        return true;
-    else 
-        return false;    
+   return (typeof IsFunction === "function");
 }
 console.log(isFunction(isObject));
 
 //_____________Keys___________________
 
-function Keys(user, ) {
-    if (!errors(user)) {
+function Keys(user) {
+    if (!errors(user) || user.hasOwnProperty() != false) {
         return user.name;
     }
     else
@@ -54,7 +48,7 @@ console.log(Keys(user));
 //_____________AllKeys________________
 
 function allKeys(user) {
-    if (!errors(user)) {
+    if (!errors(user) || user.hasOwnProperty() != false) {
         return Object.keys(user);
     }
     else
@@ -66,6 +60,7 @@ console.log(allKeys(user));
 
 function values(user) {
     if (!errors(user)) {
+
         return Object.values(user);
     }
     else
@@ -77,7 +72,8 @@ console.log(values(user));
 
 function pairs(user) {
     if (!errors(user)) {
-        return Object.entries(user);
+        const map = new Map(Object.entries(user))
+        return Object.fromEntries(map);
     }
 }
 console.log(pairs(user));
@@ -90,7 +86,6 @@ function FUnction(user) {
         errors;
 }
 console.log(FUnction(user));
-
 
 </script> 
 </body>
