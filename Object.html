@@ -8,23 +8,26 @@
 <body>
 <script>
 
-let user = {
+let object = {
   name: "Nastya",
   age: 30,
   weight: 170,
+  pets: function() {
+      return 'cat';
+  }
 };
 
-function errors(user) {
-    if ((user === null) || (typeof user == undefined) || (user.length == 0) || (typeof user !== "object"))
+function errors(object) {
+    if ((object === null) || (typeof object == undefined) || (object.length == 0) || (typeof object !== "object"))
         throw Error('Empty object')
 }
 
 //____________IsObject________________
 
-function isObject(user) {
-        return !errors(user);
+function isObject(object) {
+        return !errors(object);
 }
-console.log(isObject(user));
+console.log(isObject(object));
 
 //____________IsFunction______________
 
@@ -35,57 +38,57 @@ console.log(isFunction(isObject));
 
 //_____________Keys___________________
 
-function Keys(user) {
-    if (!errors(user) || user.hasOwnProperty() != false) {
-        return user.name;
+function Keys(object) {
+    if (!errors(object) || object.hasOwnProperty() != false) {
+        return object.name;
     }
     else
-        errors;
+        return [];
 }
 
-console.log(Keys(user));
+console.log(Keys(object));
 
 //_____________AllKeys________________
 
-function allKeys(user) {
-    if (!errors(user) || user.hasOwnProperty() != false) {
-        return Object.keys(user);
+function allKeys(object) {
+    if (!errors(object) || object.hasOwnProperty() != false) {
+        return Object.keys(object);
     }
     else
-        errors;
+        return [];
 }
-console.log(allKeys(user));
+console.log(allKeys(object));
 
 //______________Values________________
 
-function values(user) {
-    if (!errors(user)) {
-
-        return Object.values(user);
+function values(object) {
+    if (!errors(object)) {
+        return Object.values(object);
     }
     else
-        errors;
+        return [];
 }
-console.log(values(user));
+console.log(values(object));
 
 //______________Pairs_________________
 
-function pairs(user) {
-    if (!errors(user)) {
-        const map = new Map(Object.entries(user))
-        return Object.fromEntries(map);
+function pairs(object) {
+    if (!errors(object)) {
+        return  Object.entries(object).map(([key, value]) => [key, value])
     }
+    else
+        return [];
 }
-console.log(pairs(user));
+console.log(pairs(object));
 
 //______________Function______________
-function FUnction(user) {
-    if (!errors(user))
-        return arguments;
+function isFUnction(object) {
+    if (!errors(object))
+        return (typeof Object.values(object) === 'function')
     else
-        errors;
+        return [];
 }
-console.log(FUnction(user));
+console.log(isFUnction(object));
 
 </script> 
 </body>
