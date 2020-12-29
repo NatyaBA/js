@@ -39,8 +39,8 @@ console.log(isFunction(isObject));
 //_____________Keys___________________
 
 function Keys(object) {
-    if (!errors(object) || object.hasOwnProperty() != false) {
-        return object.name;
+    if (!errors(object)) {
+        return Object.keys(object);
     }
     else
         return [];
@@ -51,7 +51,7 @@ console.log(Keys(object));
 //_____________AllKeys________________
 
 function allKeys(object) {
-    if (!errors(object) || object.hasOwnProperty() != false) {
+    if (!errors(object) || object.hasOwnProperty(key) != false) {
         return Object.keys(object);
     }
     else
@@ -69,26 +69,27 @@ function values(object) {
         return [];
 }
 console.log(values(object));
-
 //______________Pairs_________________
 
 function pairs(object) {
     if (!errors(object)) {
-        return  Object.entries(object).map(([key, value]) => [key, value])
-    }
+        return entries(object).map(f => {
+           return {key, value};   
+        })
+      }
     else
         return [];
 }
 console.log(pairs(object));
 
 //______________Function______________
-function isFUnction(object) {
+function FUnction(object) {
     if (!errors(object))
-        return (typeof Object.values(object) === 'function')
+       return Object.values(object).find(value => typeof object[value] === "function");
     else
         return [];
 }
-console.log(isFUnction(object));
+console.log(FUnction(object));
 
 </script> 
 </body>
