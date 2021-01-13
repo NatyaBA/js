@@ -28,7 +28,6 @@ function isObject(object) {
         return !errors(object);
 }
 console.log(isObject(object));
-
 //____________IsFunction______________
 
 function isFunction(IsFunction) {
@@ -72,10 +71,14 @@ console.log(values(object));
 //______________Pairs_________________
 
 function pairs(object) {
+
     if (!errors(object)) {
-        return entries(object).map(f => {
-           return {key, value};   
-        })
+        return Object.entries(object).map(object => {
+            return {
+                key: object[0],
+                value: object[1]   
+            }
+        });
       }
     else
         return [];
@@ -84,8 +87,12 @@ console.log(pairs(object));
 
 //______________Function______________
 function FUnction(object) {
-    if (!errors(object))
-       return Object.values(object).find(value => typeof object[value] === "function");
+    if (!errors(object)) {
+        for (n in object) {
+	        if (isFunction(object[n])) 
+            	return n; 
+            }
+        } 
     else
         return [];
 }
