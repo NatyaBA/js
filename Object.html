@@ -12,6 +12,10 @@ let object = {
   name: "Nastya",
   age: 30,
   weight: 170,
+  obj : {
+      color: "yellow",
+      number: 8
+  },
   pets: function() {
       return 'cat';
   }
@@ -48,10 +52,19 @@ function Keys(object) {
 console.log(Keys(object));
 
 //_____________AllKeys________________
-
 function allKeys(object) {
-    if (!errors(object) || object.hasOwnProperty(key) != false) {
-        return Object.keys(object);
+    if (!errors(object)) {
+        var keys = [];
+        for(var key in object) {
+            keys.push(key);
+            if (typeof object[key] === "object") {
+                var subkeys = allKeys(object[key]);
+                keys = keys.concat(subkeys.map(function(subkey) {
+                    return subkey;
+                }));
+            }
+        }
+        return keys;
     }
     else
         return [];
