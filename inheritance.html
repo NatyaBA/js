@@ -9,13 +9,14 @@
     <form action="">
     <input type="button" id="start" value="Start">
     <input type="button" id="stop" value="Stop">
-    </form>
+    </form>     
     <p id="new_timer"></p>
     <form action="">
     <input type="button" id="new_stop" value="Stop">
     </form>
+
 <script>   
-    let getId = x => document.getElementById(x);
+ let getId = x => document.getElementById(x);
     let total=Number(prompt('Установить таймер в секундах'));
     let new_total=total;
   
@@ -39,7 +40,8 @@
     getId('timer').innerHTML = hours + ':' + minutes + ':' +seconds;
     getId('new_timer').innerHTML = hours + ':' + minutes + ':' +seconds;
    
-    function start() {
+class Timer {
+    start() {
         let hours = Math.floor(total / 3600);
         let minutes = Math.floor(total % 3600 / 60);
         let seconds = Math.floor(total % 3600 % 60);
@@ -56,7 +58,6 @@
             return;
         }
         total--;
-    }
 
     let timer;
     getId('start').addEventListener('click', function() {
@@ -65,8 +66,24 @@
             clearInterval(timer);
         }
     });
+    }
+    
+    stop() {
+        getId('stop').addEventListener('click', function() {
+            clearInterval(timer);
 
-    getId('stop').addEventListener('click', function() {
+            timer = setInterval(start,1000);
+            if (total == 0){ 
+                clearInterval(timer);
+            
+            }
+        });
+    }
+}
+
+class new_Timer extends Timer {
+    start() {
+        getId('stop').addEventListener('click', function() {
         clearInterval(timer);
 
         new_timer = setInterval(new_start,1000);
@@ -98,6 +115,21 @@
                 new_total--;
             }  
     });
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 </script>
 </body>
 </html>
