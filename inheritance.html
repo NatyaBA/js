@@ -7,12 +7,12 @@
 <body>
     <p id="timer"></p>
     <form action="">
-    <input type="button" id="start" value="Start">
-    <input type="button" id="stop" value="Stop">
+        <input type="button" id="start" value="Start">
+        <input type="button" id="stop" value="Stop">
     </form>     
     <p id="new_timer"></p>
     <form action="">
-    <input type="button" id="new_stop" value="Stop">
+        <input type="button" id="new_stop" value="Stop">
     </form>
 
 <script>   
@@ -21,8 +21,8 @@
     let new_total=total;
   
     function check(x) {
-        if(x<10){
-            x= "0"+x;
+        if(x < 10){
+            x = "0" + x;
             return x;
         } 
         else 
@@ -42,51 +42,50 @@
     getId('start').addEventListener('click', start);
     getId('stop').addEventListener('click', stop);
     
-class Timer {
-    start() {
-        let hours = Math.floor(total / 3600);
-        let minutes = Math.floor(total % 3600 / 60);
-        let seconds = Math.floor(total % 3600 % 60);
+    class Timer {
+        start(total) {
+            let hours = Math.floor(total / 3600);
+            let minutes = Math.floor(total % 3600 / 60);
+            let seconds = Math.floor(total % 3600 % 60);
+            
+            hours = check(hours);
+            minutes = check(minutes);
+            seconds = check(seconds);
         
-        hours = check(hours);
-        minutes = check(minutes);
-        seconds = check(seconds);
-    
-        timer = setInterval(start,1000);
-    
-        if (total == 0) { 
-            clearTimeout(timer)
-            return;
+            timer = setInterval(start,1000);
+        
+            if (total == 0) { 
+                clearTimeout(timer)
+                return;
+            }
+            total--;
+
         }
-        total--;
-
-    }
-    
-    stop() {
-        clearInterval(timer);
-
-        timer = setInterval(start,1000);
-        if (total == 0){ 
+        
+        stop() {
             clearInterval(timer);
-            
+
+            timer = setInterval(start,1000);
+            if (total == 0){ 
+                clearInterval(timer);
+                
+            }
         }
     }
-}
-getId('new_timer').innerHTML = hours + ':' + minutes + ':' +seconds;
-getId('stop').addEventListener('click', start);
+    getId('new_timer').innerHTML = hours + ':' + minutes + ':' +seconds;
+    getId('stop').addEventListener('click', start);
 
-class new_Timer extends Timer {
-    start() {     
-        clearInterval(timer);
+    class new_Timer extends Timer {
+        start(total) {     
+            clearInterval(timer);
 
-        new_timer = setInterval(start,1000);
-        if(total == 0){ 
-            clearInterval(new_timer);
-            
-        };
+            new_timer = setInterval(start,1000);
+            if(total == 0){ 
+                clearInterval(new_timer);
+                
+            };
+        }
     }
-}
- 
 </script>
 </body>
 </html>
