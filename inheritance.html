@@ -20,7 +20,7 @@
     let total=Number(prompt('Установить таймер в секундах'));
     let new_total=total;
   
-    function check(x) {
+    function extra(x) {
         if(x < 10){
             x = "0" + x;
             return x;
@@ -29,33 +29,31 @@
             return x;
     }
 
-    let hours = Math.floor(total / 3600);
-    let minutes = Math.floor(total % 3600 / 60);
-    let seconds = Math.floor(total % 3600 % 60);
+    let hours = extra(Math.floor(total / 3600));
+    let minutes = extra(Math.floor(total % 3600 / 60));
+    let seconds = extra(Math.floor(total % 3600 % 60));
  
-    hours = check(hours);
-    minutes = check(minutes);
-    seconds = check(seconds);
- 
-    getId('timer').innerHTML = hours + ':' + minutes + ':' +seconds;
+    getId('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
     
-    getId('start').addEventListener('click', start);
+    getId('start').addEventListener('click', changeto () => {
+        Timer.start(50, (value) => {
+            console.log(value);
+        })
+    });
     getId('stop').addEventListener('click', stop);
     
     class Timer {
         start(total) {
-            let hours = Math.floor(total / 3600);
-            let minutes = Math.floor(total % 3600 / 60);
-            let seconds = Math.floor(total % 3600 % 60);
-            
-            hours = check(hours);
-            minutes = check(minutes);
-            seconds = check(seconds);
         
-            timer = setInterval(start,1000);
+            timer = setInterval( function() {
+                total--;
+                if (total == 0) {
+                    clearInterval(timer);
+                }
+            }, 1000);
         
             if (total == 0) { 
-                clearTimeout(timer)
+                clearInterval(timer);
                 return;
             }
             total--;
