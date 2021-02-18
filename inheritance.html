@@ -19,7 +19,9 @@
     let getId = x => document.getElementById(x);
     let total=Number(prompt('Установить таймер в секундах'));
     let new_total=total;
+    
   
+    
     function extra(x) {
         if(x < 10){
             x = "0" + x;
@@ -32,21 +34,13 @@
     let hours = extra(Math.floor(total / 3600));
     let minutes = extra(Math.floor(total % 3600 / 60));
     let seconds = extra(Math.floor(total % 3600 % 60));
- 
-    getId('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
-    
-    getId('start').addEventListener('click', changeto () => {
-        Timer.start(50, (value) => {
-            console.log(value);
-        })
-    });
-    getId('stop').addEventListener('click', stop);
     
     class Timer {
-        start(total) {
+        start(total, callback) {
         
             timer = setInterval( function() {
                 total--;
+                callback(total);
                 if (total == 0) {
                     clearInterval(timer);
                 }
@@ -60,7 +54,7 @@
 
         }
         
-        stop() {
+        stop(total) {
             clearInterval(timer);
 
             timer = setInterval(start,1000);
@@ -70,20 +64,39 @@
             }
         }
     }
-    getId('new_timer').innerHTML = hours + ':' + minutes + ':' +seconds;
-    getId('stop').addEventListener('click', start);
+   
+
+
 
     class new_Timer extends Timer {
         start(total) {     
             clearInterval(timer);
 
-            new_timer = setInterval(start,1000);
+            new_Timer = setInterval(start,1000);
             if(total == 0){ 
                 clearInterval(new_timer);
                 
             };
         }
     }
+    getId('new_timer').innerHTML = hours + ':' + minutes + ':' +seconds;
+    getId('stop').addEventListener('click', start);
+    
+
+    getId('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
+    
+    let timer = new Timer();
+    getId('start').addEventListener('click', () => {
+        console.log(timer);
+        timer.start( (value) => {
+            console.log(value);
+        });
+    });
+
+    getId('stop').addEventListener('click', stop);
+
+    
+  
 </script>
 </body>
 </html>
