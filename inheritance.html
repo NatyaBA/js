@@ -18,9 +18,7 @@
 <script>   
     let getId = x => document.getElementById(x);
     let total=Number(prompt('Установить таймер в секундах'));
-    let new_total=total;
-    
-  
+    let new_total=total;  
     
     function extra(x) {
         if(x < 10){
@@ -51,7 +49,6 @@
                 return;
             }
             total--;
-
         }
         
         stop(total) {
@@ -64,39 +61,54 @@
             }
         }
     }
-   
-
-
-
+     
     class new_Timer extends Timer {
-        start(total) {     
+        start(total, new_timer, timer) {     
             clearInterval(timer);
 
-            new_Timer = setInterval(start,1000);
+            new_timer = setInterval(start,1000);
             if(total == 0){ 
                 clearInterval(new_timer);
                 
-            };
+            }
+        }
+         
+        stop (total, new_timer) {     
+            clearInterval(timer);
+            if(total == 0){ 
+                clearInterval(new_timer);
+                
+            }
         }
     }
-    getId('new_timer').innerHTML = hours + ':' + minutes + ':' +seconds;
-    getId('stop').addEventListener('click', start);
-    
 
-    getId('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
     
+    getId('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
+   
     let timer = new Timer();
+   
     getId('start').addEventListener('click', () => {
-        console.log(timer);
-        timer.start( (value) => {
+        timer.start(total, (value) => {
             console.log(value);
         });
-    });
+    }); 
 
-    getId('stop').addEventListener('click', stop);
-
+    let new_timer = new new_Timer();
     
-  
+    getId('new_timer').innerHTML = hours + ':' + minutes + ':' +seconds;
+    
+    getId('stop').addEventListener('click', () => {
+        new_timer.start(total, new_timer, (value) => {
+            console.log(value);
+        });
+    }); 
+
+    getId('new_stop').addEventListener('click', () => {
+        new_timer.stop(total, (value) => {
+            console.log(value);
+        });
+    });  
+
 </script>
 </body>
 </html>
